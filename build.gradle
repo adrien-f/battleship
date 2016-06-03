@@ -44,12 +44,20 @@ project(":desktop") {
 
 project(":core") {
     apply plugin: "java"
+    apply plugin: "jacoco"
     sourceSets.test.java.srcDirs = ["test/"]
 
     dependencies {
         compile "com.badlogicgames.gdx:gdx:$gdxVersion"
         compile "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
         testCompile 'junit:junit:4.12'
+    }
+
+    jacocoTestReport {
+        reports {
+            xml.enabled true
+            html.destination "${buildDir}/jacocoHtml"
+        }
     }
 }
 
