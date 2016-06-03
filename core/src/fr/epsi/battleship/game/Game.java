@@ -4,7 +4,6 @@ import fr.epsi.battleship.entity.Board;
 import fr.epsi.battleship.entity.Player;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Game {
     public HashMap<Player, Board> boards;
