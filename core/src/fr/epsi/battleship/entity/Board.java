@@ -11,15 +11,27 @@ public class Board {
     private HashMap<Integer, HashMap<Integer, Coordinate>> coordinates;
 
     public Board() {
-        coordinates = new HashMap<Integer, HashMap<Integer, Coordinate>>();
+        coordinates = new HashMap<>();
         for (int i = 0; i < width; i++) {
+            HashMap<Integer, Coordinate> coordinateHash = new HashMap<Integer, Coordinate>();
             for (int j = 0; j < height; j++) {
                 Coordinate coordinate = new Coordinate(i, j);
-                HashMap<Integer, Coordinate> coordinateHash = new HashMap<Integer, Coordinate>();
                 coordinateHash.put(j, coordinate);
-                coordinates.put(i, coordinateHash);
             }
+            coordinates.put(i, coordinateHash);
         }
+    }
+
+    public static int getWidth() {
+        return width;
+    }
+
+    public static int getHeight() {
+        return height;
+    }
+
+    public HashMap<Integer, HashMap<Integer, Coordinate>> getCoordinates() {
+        return coordinates;
     }
 
     public Coordinate getCoordinate(int x, int y) {
