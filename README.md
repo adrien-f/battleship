@@ -18,5 +18,6 @@ Rien pour l'instant.
 
 * Adrien Fillon <adrien.fillon@epsi.fr>
 * Sébastien Debici <sebastien.debici@epsi.fr>
-* Ryon Thorpe <ryon.thorpe@epsi.fr>
+* Tristan Fabre <tristan.fabre@epsi.fr>
+
 
