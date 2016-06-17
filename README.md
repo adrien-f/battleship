@@ -14,6 +14,14 @@ Rien pour l'instant.
 * V3 en graphique deux joueurs en socket
 * V4 en graphique multijoueurs en socket
 
+## Contribution
+
+Nous suivons le modèle [Git-Flow](http://nvie.com/posts/a-successful-git-branching-model/) pour nos modifications.
+
+![](http://i.imgur.com/FsU3vnE.png)
+
+Merci de faire votre travail dans la branche feature/XXX et de faire une pull-request !
+
 ## Contributeurs
 
 * Adrien Fillon <adrien.fillon@epsi.fr>
