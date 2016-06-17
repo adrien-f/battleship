@@ -15,7 +15,6 @@ public class GameTest {
         assertEquals(1, game.boards.size());
     }
 
-
     @Test
     public void testGetPlayer() throws Exception {
         Player player = new Player("Player 1");

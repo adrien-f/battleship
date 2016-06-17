@@ -6,8 +6,6 @@ public class Coordinate {
     private int x;
     private int y;
     private Boat boat;
-    private int boatIndex;
-    private boolean horizontal;
     private boolean shot = false;
 
     public Coordinate(int x, int y) {
@@ -27,28 +25,12 @@ public class Coordinate {
         return boat;
     }
 
-    public int getBoatIndex() {
-        return boatIndex;
-    }
-
-    public boolean isHorizontal() {
-        return horizontal;
-    }
-
-    public boolean isShot() {
-        return shot;
-    }
-
     public void setBoat(Boat boat) {
         this.boat = boat;
     }
 
-    public void setBoatIndex(int boatIndex) {
-        this.boatIndex = boatIndex;
-    }
-
-    public void setHorizontal(boolean horizontal) {
-        this.horizontal = horizontal;
+    public boolean isShot() {
+        return shot;
     }
 
     public void setShot(boolean shot) {

@@ -1,8 +1,10 @@
 package fr.epsi.battleship.entity;
 
+import fr.epsi.battleship.entity.boat.Boat;
 import fr.epsi.battleship.game.Coordinate;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class Board {
     public static final int width = 10;
@@ -13,7 +15,7 @@ public class Board {
     public Board() {
         coordinates = new HashMap<>();
         for (int i = 0; i < width; i++) {
-            HashMap<Integer, Coordinate> coordinateHash = new HashMap<Integer, Coordinate>();
+            HashMap<Integer, Coordinate> coordinateHash = new HashMap<>();
             for (int j = 0; j < height; j++) {
                 Coordinate coordinate = new Coordinate(i, j);
                 coordinateHash.put(j, coordinate);
@@ -36,5 +38,12 @@ public class Board {
 
     public Coordinate getCoordinate(int x, int y) {
         return coordinates.get(x).get(y);
+    }
+
+    public void addBoat(Boat boat, List<Coordinate> coordinates) {
+        assert boat.getSize() == coordinates.size();
+        assert coordinates.get(0).getX() <= 10 && coordinates.get(0).getX() >= 0;
+        assert coordinates.get(0).getY() <= 10 && coordinates.get(0).getY() >= 0;
+        coordinates.forEach(coordinate -> coordinate.setBoat(boat));
     }
 }
