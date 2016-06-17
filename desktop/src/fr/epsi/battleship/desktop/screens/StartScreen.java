@@ -7,13 +7,15 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import fr.epsi.battleship.desktop.Battleship;
 
 
 public class StartScreen implements Screen {
 
     private Battleship game;
-    OrthographicCamera camera;
+    private OrthographicCamera camera;
+    private BitmapFont fontTitle;
 
 
     public StartScreen(Battleship g) {
@@ -21,6 +23,9 @@ public class StartScreen implements Screen {
         game = g;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1024, 600);
+        FreeTypeFontGenerator.FreeTypeFontParameter freeTypeFontParameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        freeTypeFontParameter.size = 50;
+        fontTitle = game.font.generateFont(freeTypeFontParameter);
     }
 
     @Override
@@ -35,18 +40,17 @@ public class StartScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
-        final GlyphLayout layout = new GlyphLayout(game.font, "BattleShip");
-
+        final GlyphLayout layout = new GlyphLayout(fontTitle, "BattleShip");
 
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
 
         game.batch.begin();
-        game.font.draw(game.batch, layout, 475, 450);
+        fontTitle.draw(game.batch, layout, (camera.viewportWidth - layout.width) / 2, (camera.viewportHeight - layout.height) / (5/3) );
         game.batch.end();
 
         if (Gdx.input.isTouched()) {
-            Gdx.app.log("test", "e");
+            Gdx.app.log("test", "e");   
             dispose();
         }
 
