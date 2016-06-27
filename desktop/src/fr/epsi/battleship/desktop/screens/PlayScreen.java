@@ -11,18 +11,17 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import fr.epsi.battleship.desktop.Battleship;
-import fr.epsi.battleship.desktop.Colors;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 
-
-public class StartScreen implements Screen {
+public class PlayScreen implements Screen {
 
     private Battleship game;
     private OrthographicCamera camera;
     private BitmapFont fontTitle;
 
 
-    public StartScreen(Battleship g) {
+    public PlayScreen(Battleship g) {
 
         game = g;
         camera = new OrthographicCamera();
@@ -39,25 +38,27 @@ public class StartScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(Colors.Blue.r, Colors.Blue.g, Colors.Blue.b, 1);
+
+        Gdx.gl.glClearColor(52 / 255f, 152 / 255f, 219 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-
-        final GlyphLayout layout = new GlyphLayout(fontTitle, "BattleShip");
-        final GlyphLayout playMessage = new GlyphLayout(fontTitle, "Cliquez pour jouer");
+        
+        final Texture texture = new Texture("core/assets/grille.png");
+        final Sprite sprite = new Sprite(texture);
 
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
 
+        sprite.setSize(camera.viewportWidth, camera.viewportHeight);
+
         game.batch.begin();
-        fontTitle.draw(game.batch, layout, (camera.viewportWidth - layout.width) / 2, (camera.viewportHeight - layout.height) / (5/3) );
-        fontTitle.draw(game.batch, playMessage, (camera.viewportWidth - layout.width) / 2 - 75, (camera.viewportHeight - layout.height) / 3);
+        sprite.draw(game.batch);
         game.batch.end();
+
 
         if (Gdx.input.isTouched()) {
             Gdx.app.log("test", "e");
             dispose();
-            game.setScreen(new PlayScreen(game));
+
         }
 
     }
