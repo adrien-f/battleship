@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import fr.epsi.battleship.desktop.Battleship;
+import fr.epsi.battleship.desktop.Colors;
 
 
 public class StartScreen implements Screen {
@@ -35,8 +36,7 @@ public class StartScreen implements Screen {
 
     @Override
     public void render(float delta) {
-
-        Gdx.gl.glClearColor(52 / 255f, 152 / 255f, 219 / 255f, 1);
+        Gdx.gl.glClearColor(Colors.Blue.r, Colors.Blue.g, Colors.Blue.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 
